@@ -1,0 +1,95 @@
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+sensor: !include sensors.yaml
+switch: !include switchs.yaml
+light: !include lights.yaml
+zone: !include zones.yaml
+
+homeassistant:
+  customize: !include customize.yaml
+
+  packages: !include_dir_named packages
+
+# Bluetooth
+bluetooth:
+
+frontend:
+  extra_module_url:
+    - /hacsfiles/lovelace-card-mod/card-mod.js
+
+  themes: !include_dir_merge_named themes    
+
+lovelace:
+  mode: storage
+  dashboards:
+  
+    tableau-ha:
+      filename: Mon-Tableau-HA/Mon-Tableau-HA.yaml
+      icon: mdi:billboard
+      title: Mon Tableau HA
+      show_in_sidebar: true
+      mode: yaml
+      
+    tableau-rpi:
+      filename: Mon-Tableau-RPI/Mon-Tableau-RPI.yaml
+      icon: mdi:laptop
+      title: Mon Tableau RPI
+      show_in_sidebar: true
+      mode: yaml
+      
+#input_boolean:
+#  temp:
+#    name: Input temporaire
+#    icon: mdi:creation
+ 
+neviweb130:
+  username: !secret climate_username
+  password: !secret climate_password
+  network: !secret climate_gateway
+  scan_interval: 360
+  stat_interval: 360
+  
+# WebSocket API
+websocket_api:
+
+#  Hilo génération automatique des capteurs de consommation électrique
+utility_meter:
+  pluie_par_heure:
+    unique_id: pluie_2_par_heure
+    source: sensor.tempest_st_00032986_rain_today
+    cycle: hourly
+  pluie_par_jour:
+    unique_id: pluie_2_par_jour
+    source: sensor.tempest_st_00032986_rain_today
+    cycle: daily
+  pluie_par_semaine:
+    unique_id: pluie_2_par_semaine
+    source: sensor.tempest_st_00032986_rain_today
+    cycle: weekly
+  pluie_par_mois:
+    unique_id: pluie_2_par_mois
+    source: sensor.tempest_st_00032986_rain_today
+    cycle: monthly
+  pluie_par_annee:
+    unique_id: pluie_2_par_annee
+    source: sensor.tempest_st_00032986_rain_today
+    cycle: yearly
+
+#logger:
+#  default: warning
+#  logs:
+#    homeassistant.custom_components: debug
+#    custom_components.neviweb130: debug
+
+    
+    
+    

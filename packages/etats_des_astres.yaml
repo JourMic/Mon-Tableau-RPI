@@ -1,0 +1,14 @@
+template:
+  - sensor:
+
+      - name: "Déterminer le prohain événement du soleil"
+        unique_id: "determiner_le_prohain_evenement_du_soleil"
+        icon: mdi:weather-sunset-up
+        state: >
+          {% if states('sun.sun') == 'above_horizon' %}
+             Coucher du soleil à {{ states('sensor.soleil_coucher') }}
+          {% else %}
+             Lever du soleil à {{ states('sensor.soleil_lever') }}
+          {% endif %}
+          
+  

@@ -1,0 +1,215 @@
+title: Principale RPI
+path: Vue-rpi-principale
+icon: mdi:home-account
+theme: !include ../Cartes/Carte-Theme.yaml
+type: panel
+badges: []
+subview: false
+visible: trues
+cards:
+  - type: horizontal-stack
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: custom:layout-card
+            layout_type: custom:horizontal-layout
+            layout:
+              width: 300
+            cards:
+
+              - type: custom:html-card
+                title: ""
+                card_mod:
+                  class: header-left
+                content: |
+                  <h1>[[sensor.periodes_du_jours]]</h1>
+
+              - type: custom:mushroom-template-card
+                primary: >-
+                  {{ now().strftime('%H:%M') }}
+                secondary: >-
+                  {{ states('sensor.date_du_jour') }}
+                tap_action:
+                  action: none
+                card_mod:
+                  style: |
+                    ha-card {
+                      --card-primary-font-size: 173px;
+                      --card-secondary-font-size: 43px;
+                      --card-primary-line-height: 190px !important;
+                      --card-secondary-line-height: 45px !important;
+                      text-align: center;
+                    }
+                  class: middle-left
+
+              - type: custom:html-card
+                title: ""
+                card_mod:
+                  class: bar-left
+                content: |
+                  <h1>Vents (km/h)</h1>
+
+              - type: custom:mushroom-template-card
+                primary: >-
+                  {{ states('sensor.tempest_st_00032986_wind_speed') | round(1) }}
+                secondary: >-
+                  Direction : {{ states('sensor.tempest_st_00032986_wind_direction') }}
+                tap_action:
+                  action: none
+                card_mod:
+                  style: |
+                    ha-card {
+                      --card-primary-font-size: 173px;
+                      --card-secondary-font-size: 43px;
+                      --card-primary-line-height: 190px !important;
+                      --card-secondary-line-height: 47px !important;
+                      text-align: center;
+                    }
+                  class: middle-left
+
+              - type: custom:html-card
+                title: ""
+                content: "&nbsp;"
+                card_mod:
+                  class: footer-left
+
+      - type: vertical-stack
+        cards:
+          - type: custom:layout-card
+            layout_type: custom:horizontal-layout
+            layout:
+              width: 300
+            cards:
+
+              - type: custom:html-card
+                title: ""
+                card_mod:
+                  class: header-left
+                content: |
+                  <h1>Intérieure (°C)</h1>
+
+              - type: custom:mushroom-template-card
+                primary: >-
+                  {{ states('sensor.maison_temperature') }}
+                secondary: >-
+                  Humidité: {{ states('sensor.maison_humidite') | round(1) }} %
+                tap_action:
+                  action: none
+                card_mod:
+                  style: |
+                    ha-card {
+                     --card-primary-font-size: 173px;
+                      --card-secondary-font-size: 43px;
+                      --card-primary-line-height: 190px !important;
+                      --card-secondary-line-height: 45px !important;
+                      text-align: center;
+                    }
+                  class: middle-left
+
+              - type: custom:html-card
+                title: ""
+                card_mod:
+                  class: bar-left
+                content: |
+                  <h1>Extérieure (°C)</h1>
+
+              - type: custom:mushroom-template-card
+                primary: >-
+                  {{ states('sensor.tempest_st_00032986_temperature') | round(1) }}
+                secondary: >-
+                  Ressenti: {{ states('sensor.tempest_st_00032986_feels_like_temperature')  | round(1) }} °C 
+                tap_action:
+                  action: none
+                card_mod:
+                  style: |
+                    ha-card {
+                      --card-primary-font-size: 173px;
+                      --card-secondary-font-size: 43px;
+                      --card-primary-line-height: 190px !important;
+                      --card-secondary-line-height: 50px !important;
+                      text-align: center;
+                    }
+                  class: middle-left
+
+              - type: custom:html-card
+                title: ""
+                content: "&nbsp;"
+                card_mod:
+                  class: footer-left
+
+      - type: vertical-stack
+        cards:
+          - type: custom:layout-card
+            layout_type: custom:horizontal-layout
+            layout:
+              width: 300
+            cards:
+
+              - type: custom:html-card
+                title: ""
+                card_mod:
+                  class: header-left
+                content: |
+                  <h1>Pluies (mm)</h1>
+
+              - type: custom:mushroom-template-card
+                primary: >-
+                  {{ states('sensor.tempest_st_00032986_rain_today') | round(1) }}
+                tap_action:
+                  action: none
+                card_mod:
+                  style: |
+                    ha-card {
+                      --card-primary-font-size: 135px;
+                      --card-primary-line-height: 137px !important;
+                      text-align: center;
+                    }
+                  class: middle-left
+                  
+              - type: custom:html-card
+                title: ""
+                card_mod:
+                  class: bar-left
+                content: |
+                  <h1>Humidité (%)</h1>
+
+              - type: custom:mushroom-template-card
+                primary: >-
+                  {{ states('sensor.tempest_st_00032986_humidity') | round(1) }}
+                tap_action:
+                  action: none
+                card_mod:
+                  style: |
+                    ha-card {
+                      --card-primary-font-size: 135px;
+                      --card-primary-line-height: 137px !important;
+                      text-align: center;
+                    }
+                  class: middle-left
+
+              - type: custom:html-card
+                title: ""
+                card_mod:
+                  class: bar-left
+                content: |
+                  <h1>Pression (kPa)</h1>
+
+              - type: custom:mushroom-template-card
+                primary: >-
+                  {{ states('sensor.shawinigan_barometric_pressure')  | round(1) }} 
+                tap_action:
+                  action: none
+                card_mod:
+                  style: |
+                    ha-card {
+                      --card-primary-font-size: 136px;
+                      --card-primary-line-height: 140px !important;
+                      text-align: center;
+                    }
+                  class: middle-left
+
+              - type: custom:html-card
+                title: ""
+                content: "&nbsp;"
+                card_mod:
+                  class: footer-left

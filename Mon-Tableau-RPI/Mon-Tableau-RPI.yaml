@@ -1,0 +1,13 @@
+## Tableau de bord RPI
+
+title: Mon Tableau RPI
+
+views:
+  # Vues principales
+
+  - !include Vue-Principale-RPI/Vue-Principale-RPI.yaml   
+
+  # Sous Vues
+
+  - !include Sous-Vues-RPI/Sous-Vue-Parametres-RPI.yaml
+  

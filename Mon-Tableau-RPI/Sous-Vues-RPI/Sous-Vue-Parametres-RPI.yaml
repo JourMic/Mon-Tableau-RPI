@@ -1,0 +1,44 @@
+# Sous-Vue Paramètres
+
+theme: !include ../Cartes/Carte-Theme.yaml
+title: Suivis
+path: sous-vue-parametres
+icon: mdi:tools
+type: panel
+subview: false
+visible: true
+badges: []
+cards:
+  - type: vertical-stack 
+    cards:
+      - type: custom:html-card
+        title: ""
+        content: "&nbsp;"
+        card_mod:
+          class: middle-blank
+
+      - type: custom:html-card
+        title: ""
+        content: |
+          <h1>Paramètres</h1>
+        card_mod:
+          class: header-contained
+
+      - type: entities
+        entities:
+          - entity: input_boolean.lcars_sound
+            icon: mdi:speaker
+          - entity: input_boolean.lcars_texture
+            icon: mdi:texture
+          - entity: input_number.lcars_horizontal
+          - entity: input_number.lcars_vertical
+        state_color: true
+        card_mod:
+          class: middle-contained
+
+      - type: custom:html-card
+        title: ""
+        content: |
+          <h1>&nbsp;</h1>
+        card_mod:
+          class: footer-contained
