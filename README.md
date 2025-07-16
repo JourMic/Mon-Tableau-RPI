@@ -1,6 +1,5 @@
 # Mon-Tableau-RPI
 
-![image](https://github.com/user-attachments/assets/29b77138-84b8-4541-b226-aa3255cd5e59)
+<img width="1376" height="1032" alt="image" src="https://github.com/user-attachments/assets/45c56d2d-3671-47a2-93cb-14303ebb506e" />
 
-![image](https://github.com/user-attachments/assets/204916c0-9ec5-4ec0-9371-d64d115bedad)
-
+<img width="1376" height="1032" alt="image" src="https://github.com/user-attachments/assets/0fb36c94-d279-4155-8f29-5790c0650f7f" />
